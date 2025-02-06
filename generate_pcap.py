@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from scapy.all import Ether, IP, TCP, Raw, wrpcap
+import sys
 
 # ========================================
 # Packet parameters (modify as needed)
