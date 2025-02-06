@@ -35,10 +35,17 @@ packet = (Ether(src=src_mac, dst=dst_mac, type=eth_type) /
           Raw(load=payload))
 
 # ========================================
+# Determine output filename from argument or default to "packet.pcap"
+# ========================================
+if len(sys.argv) > 1:
+    pcap_filename = sys.argv[1]
+else:
+    pcap_filename = "packet.pcap"
+
+# ========================================
 # Write the packet to a PCAP file
 # ========================================
-
-pcap_filename = "test_packet.pcap"
 wrpcap(pcap_filename, packet)
 
 print(f"PCAP file '{pcap_filename}' generated successfully.")
+
